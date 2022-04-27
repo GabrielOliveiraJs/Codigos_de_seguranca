@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e8efed;
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        .logo {
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo h1:nth-child(1) {
+            font-size: 3.5vw;
+            margin: 0;
+            padding: 1vw 0vw 0vw 0vw;
+            color: rgb(49, 102, 150);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 3vw;
+        }
+
+        .logo h1:nth-child(2) {
+            font-size: 2.5vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        #searchbar {
+            padding: 0.5vw;
+            margin: 1vw 0vw 2vw 0vw;
+            border-radius: 0.8vw;
+            border: ridge 0.2vw rgba(37, 150, 190, 0.8);
+            font-size: 1vw;
+            background-color: #e8efed;
+        }
+
+        #searchbar:focus,
+        #searchbar:active {
+            outline: none;
+        }
+
+        input[type=text] {
+            width: 30%;
+            -webkit-transition: width 0.15s ease-in-out;
+            transition: width 0.15s ease-in-out;
+        }
+
+        .tabela_codigos {
+            width: 100%;
+            text-align: center;
+        }
+
+        .tabela_codigos thead tr td {
+            border: ridge 0.2vw rgba(37, 150, 190, 0.8);
+            font-size: 1.2vw;
+            font-weight: bold;
+        }
+
+        .tabela_codigos tbody tr td {
+            font-size: 1.4vw;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="logo">
+            <h1>HS</h1>
+            <h1>Home Safety</h1>
+        </div>
+        <!-- input tag -->
+        <input id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Pesquisar Código">
+
+        <!-- ordered list -->
+        <table class="tabela_codigos">
+            <thead>
+                <tr>
+                    <td>EVENTO</td>
+                    <td>NOME</td>
+                    <td>TIPO DE ALARME</td>
+                    <td>TIPO DE DADO</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!--ALARMES MÉDICOS-->
+                <tr class="codigo">
+                    <td>100</td>
+                    <td> Médico </td>
+                    <td>Médico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>101</td>
+                    <td>Emergência Médica</td>
+                    <td>Médico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>102</td>
+                    <td>Falha ao Reportar</td>
+                    <td>Médico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--ALARMES DE INCÊNDIO-->
+                <tr class="codigo">
+                    <td>110</td>
+                    <td>Incêndio</td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>111</td>
+                    <td> Fumaça
+                    </td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>112</td>
+                    <td>Combustão</td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>113</td>
+                    <td>Fluxo de Água</td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>114</td>
+                    <td>Calor / Aquecimento</td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>115</td>
+                    <td>Estação de Tração</td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>116</td>
+                    <td>Duto</td>
+                    <td>Incêndio </td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>117</td>
+                    <td>Chamas</td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>118</td>
+                    <td>Alarme Próximo</td>
+                    <td>Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--ALARMES DE PÂNICO-->
+                <tr class="codigo">
+                    <td>120</td>
+                    <td>Pânico</td>
+                    <td>Pânico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>121</td>
+                    <td>Coação</td>
+                    <td>Pânico</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>122</td>
+                    <td>Silêncioso</td>
+                    <td>Pânico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>123</td>
+                    <td>Aldível</td>
+                    <td>Pânico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>124</td>
+                    <td>Coação - Acesso Concedido</td>
+                    <td>Pânico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>125</td>
+                    <td>Coação - Saída Garantida</td>
+                    <td>Pânico</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--ALARMES ASSALTANTES-->
+                <tr class="codigo">
+                    <td>130</td>
+                    <td>Roubo</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>131</td>
+                    <td>Perímetro</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>132</td>
+                    <td>Interior</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>133</td>
+                    <td>24 Horas (Seguro)</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>134</td>
+                    <td>Entrada / Saída</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>135</td>
+                    <td>Dia / Noite</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>136</td>
+                    <td>Exterior</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>137</td>
+                    <td>Adulterado</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>138</td>
+                    <td>Próximo ao Alarme</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>139</td>
+                    <td>Verificador de Intrusão</td>
+                    <td>Assaltantes</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--ALARMES GERAIS-->
+                <tr class="codigo">
+                    <td>140</td>
+                    <td>Alarme Geral</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>141</td>
+                    <td>Ciclo de Votação Aberto</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>142</td>
+                    <td>Ciclo de Votação Curto</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>143</td>
+                    <td>Falha do Módulo de Expansão</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>144</td>
+                    <td>Sabotagem de Sensor</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>145</td>
+                    <td>Sabotagem do Módulo de Expansão</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>146</td>
+                    <td>Roubo Silencioso</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>147</td>
+                    <td>Falha de Supervisão do Sensor</td>
+                    <td>Gerais</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--24 HORAS SEM ROUBO-->
+                <tr class="codigo">
+                    <td>150</td>
+                    <td>24 Horas Sem Roubo </td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>151</td>
+                    <td>Gás Detectado</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>152</td>
+                    <td>Refrigeração</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>153</td>
+                    <td>Perca de Calor</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>154</td>
+                    <td>Vazamento de Água</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>155</td>
+                    <td>Quebra de Folha / Lâmina / Chapa</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>156</td>
+                    <td>Dia Problemático</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>157</td>
+                    <td>Baixo Nível de gás Engarrafado</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>158</td>
+                    <td>Alta Temperatura</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>159</td>
+                    <td>Baixa Temperatura</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>161</td>
+                    <td>Perca de Fluxo de Ar</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>162</td>
+                    <td>Monóxido de Carbono Detectado</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>163</td>
+                    <td>Nível de Tanque</td>
+                    <td>24 Horas Sem Roubo</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--FISCALIZADOR DE INCÊNDIO-->
+                <tr class="codigo">
+                    <td>200</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>201</td>
+                    <td>Baixa Pressão de Água</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>202</td>
+                    <td>Baixo CO2</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>203</td>
+                    <td>Sensor de Válvula de Gaveta</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>204</td>
+                    <td>Baixo Nível de Água</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>205</td>
+                    <td>Bomba Ativada</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>206</td>
+                    <td>Falha da Bomba</td>
+                    <td>Fiscalizador de Incêndio</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--ERROS DO SISTEMA-->
+                <tr class="codigo">
+                    <td>300</td>
+                    <td>Falha da Bomba</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>301</td>
+                    <td>Perca de AC</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>302</td>
+                    <td>Bateria Baixa do Sistema</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>303</td>
+                    <td>Má Soma de Verificação RAM</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>304</td>
+                    <td>Má Soma de Verificação ROM</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>305</td>
+                    <td>Reinicialização do Sistema</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>306</td>
+                    <td>Alteração na Programação do Painel</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>307</td>
+                    <td>Falha no Autoteste</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>308</td>
+                    <td>Sistema Desativado</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>309</td>
+                    <td>Falha no Teste de Bateria</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>310</td>
+                    <td>Falha de Aterramento</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>311</td>
+                    <td>Bateria Faltando/Morta</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>312</td>
+                    <td>Sobrecarga de Alimentação de Energia</td>
+                    <td>Erros do Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>313</td>
+                    <td>Reinicialização pelo Técnico</td>
+                    <td>Erros do Sistema</td>
+                    <td>Usuário</td>
+                </tr>
+                <!--RECEPTOR SONORO / RETRANSMISSÃO -->
+                <tr class="codigo">
+                    <td>320</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>321</td>
+                    <td>Sirene 1</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>322</td>
+                    <td>Sirene 2</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>323</td>
+                    <td>Retransmissão do Alarme</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>324</td>
+                    <td>Problema na Retransmissão</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>325</td>
+                    <td>Retransmissão Reversa</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>326</td>
+                    <td>Notoficação de Aplicação CKl. #3</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>327</td>
+                    <td>Notoficação de Aplicação CKl. #4</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--ERROS DE PERIFÉRICOS DO SISTEMA-->
+                <tr class="codigo">
+                    <td>330</td>
+                    <td>Erros de Periféricos do Sistema</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>331</td>
+                    <td>Ciclo de Votação Aberto</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>332</td>
+                    <td>Ciclo de Votação Curto</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>333</td>
+                    <td>Falha no Módulo de Expansão</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>334</td>
+                    <td>Falha no Repetidor</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>335</td>
+                    <td>Impressora Local sem Papel</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>336</td>
+                    <td>Falha na Impressora Local</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>337</td>
+                    <td>Perca de DC no Módulo de Expansão</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>338</td>
+                    <td>Bateria Baixa do Módulo de Expansão</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>339</td>
+                    <td>Redefinição do Módulo de Expansão</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>341</td>
+                    <td>Módulo de Expansão Sabotado</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>342</td>
+                    <td>Perca de AC no Módulo de Expansão </td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>343</td>
+                    <td>Falha no Autoteste do Módulo de Expansão</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>344</td>
+                    <td>Atolamento no Receptor de RF Detectado</td>
+                    <td>Receptor Sonoro/Retransmissão</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--PROBLEMAS DE COMUNICAÇÃO-->
+                <tr class="codigo">
+                    <td>350</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>351</td>
+                    <td>Defeito no Telco 1</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>352</td>
+                    <td>Defeito no Telco 2</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>353</td>
+                    <td>Defeito no Rádio de Longo Alcance xmitter</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>354</td>
+                    <td>Falha ao Comunicar Evento</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>355</td>
+                    <td>Perda da Supervisão de Rádio</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>356</td>
+                    <td>Perda da Votação Central</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>357</td>
+                    <td>Problema no Rádio de Longo Alcance VSWR</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>360/361</td>
+                    <td>Perda de Comunicação PC Internet/SAM</td>
+                    <td>Problemas de Comunicação</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--CICLO DE PROTEÇÃO-->
+                <tr class="codigo">
+                    <td>369</td>
+                    <td>Cabo de Rede</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>370</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>371</td>
+                    <td>Ciclo de Proteção Aberto</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>372</td>
+                    <td>Ciclo de Proteção Curto</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>373</td>
+                    <td>Problema de Incêndio</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>374</td>
+                    <td>Sair do Alarme de Erro (Zona)</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>375</td>
+                    <td>Problemas na Zona de Pânico</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>376</td>
+                    <td>Problemas da Zona de Espera</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>377</td>
+                    <td>Problemas Swinger</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>378</td>
+                    <td>Problemas na Zona de Passagem</td>
+                    <td>Ciclo de Proteção</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--PROBLEMAS NO SENSOR-->
+                <tr class="codigo">
+                    <td>380</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>381</td>
+                    <td>Perda de Supervisão - RF</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>382</td>
+                    <td>Perda de Supervisão - RPM</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>383</td>
+                    <td>Sensor Adulterado</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>384</td>
+                    <td>Bateria Baixa do RF</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>385</td>
+                    <td>Alta Sensibilidade no Detector de Fumaça</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>386</td>
+                    <td>Baixa Sensibilidade no Detector de Fumaça</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>387</td>
+                    <td>Alta Sensibilidade no Detector de Intrusos</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>388</td>
+                    <td>Baixa Sensibilidade no Detector de Intrusos</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>389</td>
+                    <td>Falha no Sensor de Auto-teste</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>391</td>
+                    <td>Problemas com o Sensor de Vigilância</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>392</td>
+                    <td>Erro no Compensador de Drift</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>393</td>
+                    <td>Alerta de Manutenção</td>
+                    <td>Problemas no Sensor</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--ABERTURA / FECHAMENTO-->
+                <tr class="codigo">
+                    <td>400</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>401</td>
+                    <td>O/C pelo Usuário</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>402</td>
+                    <td>Grupo O/C</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>403</td>
+                    <td>Automático O/C</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>404</td>
+                    <td>Atrasado para O/C (Nota: use 453, 454 no lugar)</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>405</td>
+                    <td>O/C Diferida (Obsoleto - não usar)</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>406</td>
+                    <td>Cancelar</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>407</td>
+                    <td>Arme / Desarme Remoto</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>408</td>
+                    <td>Armamento Rápido</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>409</td>
+                    <td>Chave Switch O/C</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>441</td>
+                    <td>STAY Armado</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>442</td>
+                    <td>STAY Chave Switch Armado</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>450</td>
+                    <td>O/C Excessão</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>451</td>
+                    <td>O/C Adiantado/Antecipado</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>452</td>
+                    <td>O/C Atrasado</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>453</td>
+                    <td>Falha para Abrir</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>454</td>
+                    <td>Falha para Fechar</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>455</td>
+                    <td>Falha no Auto-arme</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>456</td>
+                    <td>Arme Parcial</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>457</td>
+                    <td>Erro de Saída (Usuário)</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>458</td>
+                    <td>Usuário no Local / Instalações</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>459</td>
+                    <td>Fechamento Recente</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>461</td>
+                    <td>Código de Entrada Incorreto</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>462</td>
+                    <td>Código de Entrada Legítimo / Autêntico</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>463</td>
+                    <td>Rearme Após o Alarme</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>464</td>
+                    <td>Tempo Estendido de Alto-arme</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>465</td>
+                    <td>Alarme do Pânico Resetado</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>466</td>
+                    <td>Serviços Dento / Fora do Local / Instalações</td>
+                    <td>Abertura / Fechamento</td>
+                    <td>Usuário</td>
+                </tr>
+                <!--ACESSO REMOTO-->
+                <tr class="codigo">
+                    <td>411</td>
+                    <td>Pedido de Retorno Feito</td>
+                    <td>Acesso Remoto</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>412</td>
+                    <td>Download / Acesso Feito com Sucesso</td>
+                    <td>Acesso Remoto</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>413</td>
+                    <td>Acesso Malsucedida</td>
+                    <td>Acesso Remoto</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>414</td>
+                    <td>Comando de Desligamento do Sistema Recebido</td>
+                    <td>Acesso Remoto</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>415</td>
+                    <td>Comando de Desligamento do Discador Recebido</td>
+                    <td>Acesso Remoto</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>416</td>
+                    <td>Upload Bem-sucedido</td>
+                    <td>Acesso Remoto</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--CONTROLE DE ACESSO-->
+                <tr class="codigo">
+                    <td>421</td>
+                    <td>Acesso Negado</td>
+                    <td>Controle de Acesso</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>422</td>
+                    <td>Acesso Reportado pelo Usuário</td>
+                    <td>Controle de Acesso</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>423</td>
+                    <td>Acesso Forçado</td>
+                    <td>Controle de Acesso</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>424</td>
+                    <td>Saída Negada</td>
+                    <td>Controle de Acesso</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>425</td>
+                    <td>Saída Concedida</td>
+                    <td>Controle de Acesso</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>426</td>
+                    <td>Porta de Acesso Apoiada Aberta</td>
+                    <td>Controle de Acesso</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>427</td>
+                    <td>Prob.do Mon.de Status da Porta do Ponto de Acesso</td>
+                    <td>Controle de Acesso</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>428</td>
+                    <td>Prob.de Pedido P/Sair da Porta de Ponto de Acesso</td>
+                    <td>Controle de Acesso</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>429</td>
+                    <td>Acesso da Entrada do Modo de Programa</td>
+                    <td>Controle de Acesso</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>430</td>
+                    <td>Acesso da Saída do Modo de Programa</td>
+                    <td>Controle de Acesso</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>431</td>
+                    <td>Alteração do Nível de Ameaça de Acesso</td>
+                    <td>Controle de Acesso</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>432</td>
+                    <td>Alteração no Rele/Gatilho de Acesso</td>
+                    <td>Controle de Acesso</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>433</td>
+                    <td>Desvio de Acesso RTE</td>
+                    <td>Controle de Acesso</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>434</td>
+                    <td>Desvio de Acesso DSM</td>
+                    <td>Controle de Acesso</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--DESABILITADOR DE SISTEMA-->
+                <tr class="codigo">
+                    <td>501</td>
+                    <td>Leitor de Acesso Desabilitado</td>
+                    <td>Desabilitador de Sistema</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--SONOROS / RELÉS DESABILITADOS-->
+                <tr class="codigo">
+                    <td>520</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>521</td>
+                    <td>Campainha 1 Desabilitada</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>522</td>
+                    <td>Campainha 2 Desabilitada</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>523</td>
+                    <td>Relé de Alarme Desabilitado</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>524</td>
+                    <td>Relé de Problemas Desabilitado</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>525</td>
+                    <td>Relé de Reversão Desabilitado</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>526</td>
+                    <td>Aparelho de Notificação Ckt. #3 Desabilitado</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>527</td>
+                    <td>Aparelho de Notificação Ckt. #4 Desabilitado</td>
+                    <td>Sonoros / Relés Desabilitados</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--SISTEMA PERIFÉRICO DESABILITADO-->
+                <tr class="codigo">
+                    <td>531</td>
+                    <td>Módulo Adicionado</td>
+                    <td>Sistema Periférico Desabilito</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>532</td>
+                    <td>Módulo Removido</td>
+                    <td>Sistema Periférico Desabilito</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--comunicação desabilitada-->
+                <tr class="codigo">
+                    <td>551</td>
+                    <td>Discador Desabilitado</td>
+                    <td>Comunicação Desabilitada</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>552</td>
+                    <td>Transmissor de Rádio Desabilitado</td>
+                    <td>Comunicação Desabilitada</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>553</td>
+                    <td>Upload / Download Remoto Desabilitado</td>
+                    <td>Comunicação Desabilitada</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--BYPASSES-->
+                <tr class="codigo">
+                    <td>570</td>
+                    <td>Bypass de Zona / Sensor</td>
+                    <td>Bypasses</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>571</td>
+                    <td>Bypass de Incêndio</td>
+                    <td>Bypasses</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>572</td>
+                    <td>Bypass de Zona Horária</td>
+                    <td>Bypasses</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>573</td>
+                    <td>Bypass de Assaltante</td>
+                    <td>Bypasses</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>574</td>
+                    <td>Bypass de Grupo</td>
+                    <td>Bypasses</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>575</td>
+                    <td>Bypass de Swinger</td>
+                    <td>Bypasses</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>576</td>
+                    <td>Desvio de Zona de Acesso</td>
+                    <td>Bypasses</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>577</td>
+                    <td>Bypass de Ponto de Acesso</td>
+                    <td>Bypasses</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--TESTES / DIVERSOS-->
+                <tr class="codigo">
+                    <td>601</td>
+                    <td>Relatório Manual de Teste de Acionamento</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>602</td>
+                    <td>Relatório de Teste Periódico</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>603</td>
+                    <td>Transmissão Periódica RF</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>604</td>
+                    <td>Teste de Incêndio</td>
+                    <td>Testes / Diversos</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>605</td>
+                    <td>Relatório de Status Para Acompanhar</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>606</td>
+                    <td>Ouvir Para Acompanhar</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>607</td>
+                    <td>Teste de Caminhada Para Acompanhar</td>
+                    <td>Testes / Diversos</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>608</td>
+                    <td>Teste Periódico - Problema no Sistema Presente</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>609</td>
+                    <td>Xmitter vídeo Atico</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>611</td>
+                    <td>Ponto Testado OK</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>612</td>
+                    <td>Ponto Não Testado</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>613</td>
+                    <td>Caminhada Pela Zona de Intrusão Testada</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>614</td>
+                    <td>Caminhada na Zona de Incêndio Testada</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>615</td>
+                    <td>Caminhada na Zona de Pânico Testada</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>616</td>
+                    <td>Requisiçao de Serviço</td>
+                    <td>Testes / Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--LOG DE EVENTOS-->
+                <tr class="codigo">
+                    <td>621</td>
+                    <td>Redefinição do Log de Eventos</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>622</td>
+                    <td>Log de Eventos 50% Cheio</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>623</td>
+                    <td>Log de Eventos 90% Cheio</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>624</td>
+                    <td>Log de Eventos Acima da Capacidade</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>625</td>
+                    <td>Redefinição de Hora / Data</td>
+                    <td>Log de Eventos</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>626</td>
+                    <td>Hora / Data Impecisas</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>627</td>
+                    <td>Entrada de Modo de Programa</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>628</td>
+                    <td>Saída de Modo de Programa</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>629</td>
+                    <td>32 Horas de Criador de Log de Eventos</td>
+                    <td>Log de Eventos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--AGENDAMENTOS-->
+                <tr class="codigo">
+                    <td>630</td>
+                    <td>Mudança de Cronograma</td>
+                    <td>Agendamentos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>631</td>
+                    <td>Excessão de Mudança de Cronograma</td>
+                    <td>Agendamentos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>632</td>
+                    <td>Acesso de Mudança de Cronograma</td>
+                    <td>Agendamentos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <!--MONITORAMENTO DE PESSOAL-->
+                <tr class="codigo">
+                    <td>641</td>
+                    <td>Problema no Relógio Sênior</td>
+                    <td>Monitoramento de Pessoal</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>642</td>
+                    <td>Problema na Chave de Trava</td>
+                    <td>Monitoramento de Pessoal</td>
+                    <td>Usuário</td>
+                </tr>
+                <!--DIVERSOS-->
+                <tr class="codigo">
+                    <td>651</td>
+                    <td>Reservado Para Uso Ademco</td>
+                    <td>Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+                <tr class="codigo">
+                    <td>652</td>
+                    <td>Reservado Para Uso Ademco</td>
+                    <td>Diversos</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>653</td>
+                    <td>Reservado Para Uso Ademco</td>
+                    <td>Diversos</td>
+                    <td>Usuário</td>
+                </tr>
+                <tr class="codigo">
+                    <td>654</td>
+                    <td>Inatividade do Sistema</td>
+                    <td>Diversos</td>
+                    <td>Zona / Área</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+
+    // JavaScript code
+    function search_animal() {
+        let input = document.getElementById('searchbar').value
+        input = input.toLowerCase();
+        let x = document.getElementsByClassName('codigo');
+
+        for (i = 0; i < x.length; i++) {
+            if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                x[i].style.display = "none";
+            }
+            else {
+                x[i].style.display = "table-row";
+            }
+        }
+    }
+</script>
+
+</html>
